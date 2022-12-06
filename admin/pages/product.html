@@ -249,15 +249,54 @@
                     <input id="hangProduct" type="text" class="form-control shadow-none" />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label"> Đánh giá </label>
-                    <input id="scoreProduct" type="text" class="form-control shadow-none" />
-                  </div>
-                  <div class="mb-3">
                     <label class="form-label">Mô tả</label>
                     <textarea id="detailProduct" class="form-control shadow-none" rows="3"></textarea>
                   </div>
-                <div class="modal-footer">
-                  <button type="button" id="addProduct" class="btn btn-primary" data-dismiss="modal">Thêm sản phẩm</button>
+                  <div class="modal-footer">
+                    <button type="button" id="addProduct" class="btn btn-primary" data-dismiss="modal">
+                      Thêm sản phẩm
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Box sửa sản phẩm -->
+          <div class="modal" id="updateproduct" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Sửa sản phẩm</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label class="form-label"> Tên sản phẩm </label>
+                    <input id="nameProductU" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Giá </label>
+                    <input id="priceProductU" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Image </label>
+                    <input id="imageProductU" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Hãng </label>
+                    <input id="hangProductU" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <textarea id="detailProductU" class="form-control shadow-none" rows="3"></textarea>
+                  </div>
+                  <div class="modal-footer-update">
+                    <!-- <button type="button" id="addProduct" class="btn btn-primary" data-dismiss="modal">
+                      Sửa sản phẩm
+                    </button> -->
+                  </div>
                 </div>
               </div>
             </div>
