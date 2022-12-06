@@ -14,7 +14,14 @@
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css" />
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/adminlte.min.css" />
-    <link rel="stylesheet" href="../../css/main.css" />
+    <style>
+      .table td {
+        vertical-align: middle;
+      }
+      .table td img {
+        width: 60%;
+      }
+    </style>
   </head>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -143,12 +150,6 @@
                   <p>Danh mục</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./addproduct.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm Sản phẩm</p>
-                </a>
-              </li>
               <!-- <li class="nav-header">EXAMPLES</li> -->
             </ul>
           </nav>
@@ -180,6 +181,14 @@
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
+            <button
+              type="button"
+              class="btn btn-primary mb-3"
+              data-toggle="modal"
+              data-target="#createproduct"
+            >
+              Thêm sản phẩm
+            </button>
             <div class="row">
               <div class="col-12">
                 <div class="card">
@@ -191,7 +200,7 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col">#ID</th>
+                          <!-- <th scope="col">#ID</th> -->
                           <th scope="col">Tên</th>
                           <th scope="col">Hình ảnh</th>
                           <th scope="col">Thông tin</th>
@@ -212,6 +221,47 @@
             </div>
           </div>
           <!-- /.container-fluid -->
+          <!-- Box tạo sản phẩm -->
+          <div class="modal" id="createproduct" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Thêm sản phẩm</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label class="form-label"> Tên sản phẩm </label>
+                    <input id="nameProduct" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Giá </label>
+                    <input id="priceProduct" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Image </label>
+                    <input id="imageProduct" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Hãng </label>
+                    <input id="hangProduct" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Đánh giá </label>
+                    <input id="scoreProduct" type="text" class="form-control shadow-none" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <textarea id="detailProduct" class="form-control shadow-none" rows="3"></textarea>
+                  </div>
+                <div class="modal-footer">
+                  <button type="button" id="addProduct" class="btn btn-primary" data-dismiss="modal">Thêm sản phẩm</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <!-- /.content -->
       </div>
@@ -239,6 +289,6 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
     <!-- App -->
-    <script src="../../js/app-ad.js"></script>
+    <script type="module" src="../../js/product.js"></script>
   </body>
 </html>
