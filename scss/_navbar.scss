@@ -1,0 +1,16 @@
+.navbar {
+    .nav-item a {
+        color: #000;
+
+        &:hover {
+            color: rgb(206, 141, 57);
+
+        }
+    }
+
+    .navbar-brand {
+        color: #34FA08;
+    }
+
+    margin-bottom: 1rem;
+}

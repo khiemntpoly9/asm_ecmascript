@@ -1,0 +1,33 @@
+// Product Page
+.product__main {
+    // margin-top: 1rem;
+    margin-bottom: 0.9rem;
+
+    &-info {
+        text-align: center;
+
+        .item-name {
+            color: rgb(210, 71, 71);
+        }
+    }
+
+    &-thumnail {
+        width: 50%;
+    }
+
+    @include media-breakpoint-up(md) {
+        &-thumnail {
+            width: 100%;
+        }
+
+        &-info {
+            text-align: left;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &-thumnail {
+            width: 70%;
+        }
+    }
+}

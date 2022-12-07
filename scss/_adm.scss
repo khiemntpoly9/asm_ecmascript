@@ -1,0 +1,18 @@
+.card-body {
+    tbody.product-adm {
+        td {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#showImgProduct {
+    img {
+        border: 1px solid #000;
+        border-radius: 20px;
+        width: 250px;
+        padding: 20px;
+    }
+}

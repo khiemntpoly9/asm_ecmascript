@@ -1,0 +1,31 @@
+// Index Page - Item
+.content__item {
+    // .product {
+    //     width: 80%;
+    //     margin: auto;
+    // }
+
+    &-main {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+
+    &-info {
+        .card-price {
+            color: #000;
+
+            span {
+                color: red;
+            }
+        }
+
+        a {
+            &:hover {
+                color: aqua;
+            }
+        }
+
+        .danhgia {
+            color: #F0D102;
+        }
+    }
+}

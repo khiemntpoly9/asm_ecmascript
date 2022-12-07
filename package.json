@@ -1,0 +1,23 @@
+{
+  "name": "asm_ecmascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trungkhiem1412z/asm_ecmascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trungkhiem1412z/asm_ecmascript/issues"
+  },
+  "homepage": "https://github.com/trungkhiem1412z/asm_ecmascript#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
