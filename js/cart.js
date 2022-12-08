@@ -1,33 +1,31 @@
-"use strict";
+'use strict';
 function addCart(id, name, price, image, hang) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart == null) {
-        cart = [];
-        cart.push({ id: id, name: name, price: price, image: image, hang: hang, quatity: 1 });
-    }
-    else {
-        const item = cart.find((item) => item.id === id);
-        if (item)
-            item.quatity++;
-        else
-            cart.push({ id: id, name: name, price: price, image: image, hang: hang, quatity: 1 });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
+  let cart = JSON.parse(localStorage.getItem('cart'));
+  if (cart == null) {
+    cart = [];
+    cart.push({ id: id, name: name, price: price, image: image, hang: hang, quatity: 1 });
+  } else {
+    const item = cart.find((item) => item.id === id);
+    if (item) item.quatity++;
+    else cart.push({ id: id, name: name, price: price, image: image, hang: hang, quatity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
+
 // Xuất ra giỏ hàng
 const cart_index = () => {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart);
-    const show_cart = document.querySelector('#item-cart');
-    cart.forEach((e, index) => {
-        {
-            const sumPrice = e.price * e.quatity;
-            const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
-            const pricef = new Intl.NumberFormat('vi-VN', config).format(e.price);
-            const sumPricef = new Intl.NumberFormat('vi-VN', config).format(sumPrice);
-            // console.log(parseFloat(sumPricef));
-            console.log(Number(sumPricef.replace(/[^0-9.-]+/g, '')));
-            const item_cart = `
+  let cart = JSON.parse(localStorage.getItem('cart'));
+  console.log(cart);
+  const show_cart = document.querySelector('#item-cart');
+  cart.forEach((e, index) => {
+    {
+      const sumPrice = e.price * e.quatity;
+      const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
+      const pricef = new Intl.NumberFormat('vi-VN', config).format(e.price);
+      const sumPricef = new Intl.NumberFormat('vi-VN', config).format(sumPrice);
+      // console.log(parseFloat(sumPricef));
+      console.log(Number(sumPricef.replace(/[^0-9.-]+/g, '')));
+      const item_cart = `
 			<div class="row">
 				<div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
 					<!-- Image -->
@@ -72,44 +70,45 @@ const cart_index = () => {
 			</div>
 			<hr class="my-4" />
 			`;
-            show_cart.innerHTML += item_cart;
-        }
-    });
+      show_cart.innerHTML += item_cart;
+    }
+  });
 };
 cart_index();
 // Cout Price Item
 const countPrice = (gia, sl, i) => {
-    let sumPrice = gia;
-    sumPrice = gia * sl;
-    let priceElement = document.getElementsByClassName('sumPriceT')[i];
-    priceElement.innerHTML = `${sumPrice}`;
-    let priceElementf = document.getElementsByClassName('sumPriceTs')[i];
-    const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
-    const pricef = new Intl.NumberFormat('vi-VN', config).format(sumPrice);
-    priceElementf.innerHTML = `${pricef}`;
-    priceALL();
+  let sumPrice = gia;
+  sumPrice = gia * sl;
+  let priceElement = document.getElementsByClassName('sumPriceT')[i];
+  priceElement.innerHTML = `${sumPrice}`;
+  let priceElementf = document.getElementsByClassName('sumPriceTs')[i];
+  const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
+  const pricef = new Intl.NumberFormat('vi-VN', config).format(sumPrice);
+  priceElementf.innerHTML = `${pricef}`;
+  priceALL();
 };
 const priceALL = () => {
-    let priceElement = document.getElementsByClassName('sumPriceT');
-    // console.log(`Test: ` + typeof priceElement);
-    let allPrice = 0;
-    for (let t of priceElement) {
-        allPrice += parseInt(t.innerHTML);
-    }
-    let getSumPrice = document.querySelector('#sumpriceall');
-    const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
-    const pricef = new Intl.NumberFormat('vi-VN', config).format(allPrice);
-    getSumPrice.innerHTML = `${pricef}`;
+  let priceElement = document.getElementsByClassName('sumPriceT');
+  // console.log(`Test: ` + typeof priceElement);
+  let allPrice = 0;
+  for (let t of priceElement) {
+    allPrice += parseInt(t.innerHTML);
+  }
+  let getSumPrice = document.querySelector('#sumpriceall');
+  const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 };
+  const pricef = new Intl.NumberFormat('vi-VN', config).format(allPrice);
+  getSumPrice.innerHTML = `${pricef}`;
 };
 // Xoá sản phẩm
 let deleteitem = (id) => {
-    let cartdlt = JSON.parse(localStorage.getItem('cart'));
-    const isDulicated = cartdlt.some((item) => item.id === id);
-    if (isDulicated) {
-        const data = cartdlt.filter((item) => item.id !== id);
-        localStorage.setItem('cart', JSON.stringify(data));
-        window.location.reload();
-    }
-    else {
-    }
+  let cartdlt = JSON.parse(localStorage.getItem('cart'));
+  const isDulicated = cartdlt.some((item) => item.id === id);
+  if (isDulicated) {
+    const data = cartdlt.filter((item) => item.id !== id);
+    localStorage.setItem('cart', JSON.stringify(data));
+    window.location.reload();
+  } else {
+  }
 };
+
+exports = { addCart };

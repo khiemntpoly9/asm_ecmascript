@@ -1,23 +1,30 @@
-"use strict";
-// Navbar
-const navbar = async () => {
-    let response = await fetch('http://localhost:3001/categorites');
-    let data = await response.json();
-    // console.log(data);
-    return data;
+'use strict';
+// Import function kết nối DB
+import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js';
+// Import BD
+import database from './db.js';
+
+// Lấy data
+const navbar = document.querySelector('.nav');
+const getDataCate = async () => {
+  const categories = await ref(database, 'categories/');
+  onValue(
+    categories,
+    (item) => {
+      item.forEach((childitem) => {
+        const childKey = childitem.key;
+        const childData = childitem.val();
+        const list = `
+            <li class="nav-item text-center">
+			    <a class="nav-link" href="product.html?cat_id=${childData.name}">${childData.name}</a>
+			</li>
+        `;
+        navbar.innerHTML += list;
+      });
+    },
+    {
+      onlyOnce: true,
+    }
+  );
 };
-navbar().then((data) => {
-    const navbar = document.querySelector('.nav');
-    let arr = data;
-    // console.log(data);
-    arr.forEach((e) => {
-        {
-            const navbar_item = `
-				<li class="nav-item text-center">
-				<a class="nav-link" href="product.html?cat_id=${e['id']}">${e['title']}</a>
-				</li>
-      		`;
-            navbar.innerHTML += navbar_item;
-        }
-    });
-});
+getDataCate();
